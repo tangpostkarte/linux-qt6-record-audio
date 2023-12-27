@@ -19,11 +19,14 @@ FORMS += \
     mainwindow.ui
 
 linux: {
+    FFMPEG_HOME = /home/tang/ffmpeg_build
+}
+
 # header file
-INCLUDEPATH += /home/tang/ffmpeg_build/include
+INCLUDEPATH += $${FFMPEG_HOME}/include
 
 # lib file directory
-LIBS += -L/home/tang/ffmpeg_build/lib \
+LIBS += -L $${FFMPEG_HOME}/lib \
         -lavcodec \
         -lavdevice \
         -lavfilter \
@@ -32,7 +35,6 @@ LIBS += -L/home/tang/ffmpeg_build/lib \
         -lpostproc  \
         -lswscale   \
         -lswresample
-}
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
